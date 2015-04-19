@@ -17,7 +17,18 @@
             var textValue = $(sampleText).val();
             updatePanelText(textValue);
         }  ) ;
+        $(flatSpsectrum).spectrum({
+            flat: true,
+            showInput: true,
+            showAlpha: true,
+            showPalette: true
+        });
 
+        $(flatSpsectrum).on('move.spectrum', function(e, tinyColor) {
+            var hexVal = tinyColor.toHexString();
+            $(containerBackground).css('background', hexVal);
+
+        });
 
     });
 
