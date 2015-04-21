@@ -28,13 +28,14 @@
 }
 
 .io {
-
     border: 1px solid lightgray;
-
+    min-height: 540px;
 }
 
 .swatch {
-       margin-bottom: 2px;
+    margin-bottom: 2px;
+    border: 1px solid lightgrey;
+
 }
 #trigger {
     position: absolute;

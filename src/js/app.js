@@ -7,7 +7,9 @@
 
         InitializeColorSpectrums();
 
-        $(flatSpsectrum).spectrum({
+        var flatSpectrumElement =  $("#flatSpectrum");
+
+        flatSpectrumElement.spectrum({
             flat: true,
             showInput: true,
             showPalette: true,
@@ -15,41 +17,27 @@
             clickoutFiresChange: true
         });
 
-
-        updateColorA("#ffd238");
-        updateColorB("#819bff");
+        handleHexChangeA("#ffd238", "1.0");
+        handleHexChangeB("#819bff", "1.0");
         updateBackground("#DDDDDD");
 
         colorAEventHandlers();
         colorBEventHandlers();
 
-        var textValue = $(sampleText).val();
+        var textElement = $("#sampleText");
+        var textValue = textElement.val();
         updatePanelText(textValue);
 
-        $(sampleText).on("change", function() {
-            var textValue = $(sampleText).val();
+        textElement.on("change", function() {
+            var textValue = $("#sampleText").val();
             updatePanelText(textValue);
         }  ) ;
-
 
         // Recalculate after adding color pickers
         $cHeight = $('.o-content').outerHeight();
 
-        $(flatSpsectrum).on('move.spectrum', function(e, tinyColor) {
-            var hexVal = tinyColor.toHexString();
-            updateBackground(hexVal);
-        });
-
-        $(flatSpsectrum_a).on('move.spectrum', function(e, tinyColor) {
-            var hexVal = tinyColor.toHexString();
-            updateColorA(hexVal);
-
-        });
-
-        $(flatSpsectrum_b).on('move.spectrum', function(e, tinyColor) {
-            var hexVal = tinyColor.toHexString();
-            updateColorB(hexVal);
-
+        flatSpectrumElement.on('move.spectrum', function(e, tinyColor) {
+            updateBackgroundNoSpectrum(tinyColor);
         });
 
         $("#imgInp").change(function(){
@@ -67,24 +55,26 @@
                 var div0 = document.getElementById('containerBackground');
                 div0.style.backgroundImage = "url(" + e.target.result + ")";
                 div0.style.backgroundSize = "cover";
-            }
+            };
 
             reader.readAsDataURL(input.files[0]);
         }
     }
 
-
     function updateBackground(hexVal) {
-        $(containerBackground).css('background', hexVal);
+        updateBackgroundNoSpectrum( hexVal);
+        $("#flatSpectrum").spectrum("set", hexVal);
+    }
+
+    function updateBackgroundNoSpectrum(hexVal) {
+        $("#containerBackground").css('background', hexVal);
         var backgroundColor = document.getElementById('colorPickerBackground');
         backgroundColor.style.backgroundColor = hexVal;
-        $(flatSpsectrum).spectrum("set", hexVal);
     }
 
     function updatePanelText(textValue) {
-        $(panel_3_inner).html(textValue);
-        $(panel_4_inner).html(textValue);
-
+        $("#panel_3_inner").html(textValue);
+        $("#panel_4_inner").html(textValue);
     }
 
     function buildCanvas() {
@@ -108,7 +98,6 @@
 
     $(window).resize(function() { //On Window resizeBy(
         $cHeight = $('.o-content').outerHeight();
-        console.log($cHeight);
     });
 
 
