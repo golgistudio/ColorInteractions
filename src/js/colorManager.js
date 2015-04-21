@@ -115,19 +115,17 @@ function colorAEventHandlers() {
 
     iR_a.onchange = function() {
         var newTinyColor = tinycolor({r: iR_a.value,  g: iG_a.value, b: iB_a.value});
-        var hexColorVal = newTinyColor.toHex8();
+        var hexColorVal = newTinyColor.toHexString(false);
         updateColorA(hexColorVal);
     }
     iG_a.onchange = function() {
         var newTinyColor = tinycolor({r: iR_a.value,  g: iG_a.value, b: iB_a.value});
-        var hexColorVal = newTinyColor.toHex8();
+        var hexColorVal = newTinyColor.toHexString(false);
         updateColorA(hexColorVal);
     }
     iB_a.onchange = function() {
-
-
         var newTinyColor = tinycolor({r: iR_a.value,  g: iG_a.value, b: iB_a.value});
-        var hexColorVal = newTinyColor.toHex8();
+        var hexColorVal = newTinyColor.toHexString(false);
         updateColorA(hexColorVal);
     }
 }
@@ -141,17 +139,17 @@ function colorBEventHandlers() {
 
     iR_b.onchange = function() {
         var newTinyColor = tinycolor({r: iR_b.value,  g: iG_b.value, b: iB_b.value});
-        var hexColorVal = newTinyColor.toHex8();
+        var hexColorVal = newTinyColor.toHexString(false);
         updateColorB(hexColorVal);
     }
     iG_b.onchange = function() {
         var newTinyColor = tinycolor({r: iR_b.value,  g: iG_b.value, b: iB_b.value});
-        var hexColorVal = newTinyColor.toHex8();
+        var hexColorVal = newTinyColor.toHexString(false);
         updateColorB(hexColorVal);
     }
     iB_b.onchange = function() {
         var newTinyColor = tinycolor({r: iR_b.value,  g: iG_b.value, b: iB_b.value});
-        var hexColorVal = newTinyColor.toHex8();
+        var hexColorVal = newTinyColor.toHexString(false);
         updateColorB(hexColorVal);
     }
 
