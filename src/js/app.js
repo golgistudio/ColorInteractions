@@ -4,12 +4,25 @@
 
     $(document).ready(function() {
         buildCanvas();
-        updatePanelsColorB("#819bff") ;
-        updatePanelsColorA("#ffd238") ;
-        updateInputs_B("#819bff");
-        updateInputs_A("#ffd238");
+
+        InitializeColorSpectrums();
+
+        $(flatSpsectrum).spectrum({
+            flat: true,
+            showInput: true,
+            showPalette: true,
+            showButtons: false,
+            clickoutFiresChange: true
+        });
+
+
+        updateColorA("#ffd238");
+        updateColorB("#819bff");
+        updateBackground("#DDDDDD");
+
         colorAEventHandlers();
         colorBEventHandlers();
+
         var textValue = $(sampleText).val();
         updatePanelText(textValue);
 
@@ -17,20 +30,56 @@
             var textValue = $(sampleText).val();
             updatePanelText(textValue);
         }  ) ;
-        $(flatSpsectrum).spectrum({
-            flat: true,
-            showInput: true,
-            showAlpha: true,
-            showPalette: true
-        });
+
+
+        // Recalculate after adding color pickers
+        $cHeight = $('.o-content').outerHeight();
 
         $(flatSpsectrum).on('move.spectrum', function(e, tinyColor) {
             var hexVal = tinyColor.toHexString();
-            $(containerBackground).css('background', hexVal);
+            updateBackground(hexVal);
+        });
+
+        $(flatSpsectrum_a).on('move.spectrum', function(e, tinyColor) {
+            var hexVal = tinyColor.toHexString();
+            updateColorA(hexVal);
 
         });
 
+        $(flatSpsectrum_b).on('move.spectrum', function(e, tinyColor) {
+            var hexVal = tinyColor.toHexString();
+            updateColorB(hexVal);
+
+        });
+
+        $("#imgInp").change(function(){
+            readURL(this);
+        });
+
+
     });
+
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                var div0 = document.getElementById('containerBackground');
+                div0.style.backgroundImage = "url(" + e.target.result + ")";
+                div0.style.backgroundSize = "cover";
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+
+    function updateBackground(hexVal) {
+        $(containerBackground).css('background', hexVal);
+        var backgroundColor = document.getElementById('colorPickerBackground');
+        backgroundColor.style.backgroundColor = hexVal;
+        $(flatSpsectrum).spectrum("set", hexVal);
+    }
 
     function updatePanelText(textValue) {
         $(panel_3_inner).html(textValue);
@@ -46,6 +95,7 @@
             var $this = $(this);
             $container.toggleClass('active');
             if($container.hasClass('active')) {
+
                 $container.height($cHeight);
                 $this.text('Hide -');
             } else {
@@ -60,8 +110,6 @@
         $cHeight = $('.o-content').outerHeight();
         console.log($cHeight);
     });
-
-
 
 
 })(this);
