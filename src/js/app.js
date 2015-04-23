@@ -6,6 +6,8 @@
     var colorWidgetB;
 
     $(document).ready(function() {
+        $(document).foundation();
+
         buildCanvas();
 
         InitializeColorWidgetA();

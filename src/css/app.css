@@ -1,36 +1,10 @@
-.offcanvas-bottom {
-    position: relative;
-
-    height: 3.2em;
-    -webkit-transition: height 0.5s ease-out;
-    -moz-transition: height 0.5s ease-out;
-    -o-transition: height 0.5s ease-out;
-    transition: height 0.5s ease-out;
-    background: #FFFFFF;
+.top-bar  {
+    background: #868686;
 }
-.offcanvas-bottom.active {
-    height: auto;
-}
-.o-content {
-    width: 100%;
-
-    position: absolute;
-    bottom: 0;
-    padding: 1em 1em 2.5em;
-}
-.crumbs li a {
-    display: block;
-    padding: 1em;
-    border-bottom: 1px solid #000;
-}
-.crumbs li:last-child a {
-    border-bottom: 0;
+.topbar-bg-color {
+    background: #868686;
 }
 
-.io {
-    border: 1px solid lightgray;
-    min-height: 540px;
-}
 
 .swatch {
     margin-bottom: 2px;
@@ -48,7 +22,7 @@
 
 .container {
     width: 100%;
-    min-height: 300px;
+    min-height: 200px;
     background-repeat: no-repeat;
 
     display:         flex;
@@ -75,9 +49,10 @@
 
 
 .panel_outer {
-    width: 20%;
-    height: 90%;
-    margin: 5px;
+    width: 15%;
+    min-height: 125px;
+    margin-right: 10px;
+    margin-left: 10px;
     display:         flex;
     align-items: center;
     justify-content: center;
@@ -93,7 +68,6 @@
     -webkit-flex-grow: 1;
     -webkit-flex-shrink: 1;
     -webkit-flex-wrap: wrap;
-    min-height: 100px;
 
 }
 
@@ -101,4 +75,37 @@
     height: 75%;
     width: 60%;
     margin: 5px;
+}
+
+.fooDialog {
+    position: fixed;
+    font-family: Arial, Helvetica, sans-serif;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0,0,0,0.8);
+    z-index: 99999;
+    opacity:0;
+    -webkit-transition: opacity 400ms ease-in;
+    -moz-transition: opacity 400ms ease-in;
+    transition: opacity 400ms ease-in;
+    pointer-events: none;
+}
+
+.fooDialog:target {
+    opacity:1;
+    pointer-events: auto;
+}
+
+.fooDialog > div {
+    width: 400px;
+    position: relative;
+    margin: 10% auto;
+    padding: 5px 20px 13px 20px;
+    border-radius: 10px;
+    background: #fff;
+    background: -moz-linear-gradient(#fff, #999);
+    background: -webkit-linear-gradient(#fff, #999);
+    background: -o-linear-gradient(#fff, #999);
 }

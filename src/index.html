@@ -1,155 +1,189 @@
 <!doctype html>
 <html class="no-js" lang="en">
 <head>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>Color Interactions</title>
-	<link href="css/app.css" rel="stylesheet" />
-	<link href="css/vendor/foundation.css" rel="stylesheet">
-	<link href="css/vendor/spectrum.css" rel="stylesheet">
-	<script src="js/vendor/modernizr.js"></script>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Color Interactions</title>
+
+    <link href="css/vendor/foundation.css" rel="stylesheet">
+    <link href="css/vendor/spectrum.css" rel="stylesheet">
+    <script src="js/vendor/modernizr.js"></script>
+    <link href="css/app.css" rel="stylesheet"/>
 
 </head>
 <body>
+<nav class="top-bar" data-topbar role="navigation">
+    <ul class="title-area">
+        <li class="name">
+            <h1><a href="#">Color Interactions</a></h1>
+        </li>
+        <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+        <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+    </ul>
 
-<div id="pattern" class="pattern">
-	<div class="offcanvas-bottom">
-		<div class="o-content">
-			<form>
-				<div class="panel" id="optionsPanel">
-					<div class="row">
-						<div class="large-4 columns io">
+    <section class="top-bar-section">
+        <!-- Right Nav Section -->
+        <ul class="right">
+            <li class="active"><a data-reveal-id="aboutBox">About</a></li>
+            <li class="has-dropdown">
+                <a href="#">Resources</a>
+                <ul class="dropdown">
+                    <li><a href="http://albersfoundation.org/teaching/josef-albers/lectures/" target="_blank">Josef
+                        Albers Lectures</a></li>
+                    <li><a href="http://colorbrewer2.org/" target="_blank">Color Brewer</a></li>
 
+                </ul>
+            </li>
+        </ul>
 
-							<label>Color A</label>
-
-							<div class="large-6 columns">
-							<label>HEX</label><input id="hex_a" type="text" value=""/>
-						</div>
-							<div class="large-6 columns">
-								<label>Opacity</label><input id="opacity_a" type="number" value="" min="0" max="1.0" step="0.1"/>
-							</div>
-
-								<hr>
-
-								<div class="large-4 columns">
-									<label>R:</label><input id="rgb_r_a" type="number" value="" min="0" max="255"/>
-								</div>
-								<div class="large-4 columns">
-									<label>G:</label><input id="rgb_g_a" type="number" value="" min="0" max="255"/>
-								</div>
-								<div class="large-4 columns">
-									<label>B:</label><input id="rgb_b_a" type="number" value="" min="0" max="255"/>
-								</div>
-								<hr>
+    </section>
+</nav>
 
 
-							<div class="large-12 columns">
-								<input type="text" id="flatSpectrum_a" style="display: none;" />
-
-							</div>
-							<div class="large-12 columns">
-								<div id="colorPickerA" class="swatch">
-									&nbsp;
-								</div>
-							</div>
-
-						</div>
-
-						<div class="large-4 columns io">
-
-							    <label>Color B</label>
-
-								<div class="large-6 columns">
-									<label>HEX</label><input id="hex_b" type="text" value="" />
-								</div>
-							<div class="large-6 columns">
-								<label>Opacity</label><input id="opacity_b" type="number" value="" min="0" max="1.0" step="0.1"/>
-							</div>
-								<hr>
-
-								<div class="large-4 columns">
-									<label>R:</label><input id="rgb_r_b" type="number" value="" min="0" max="255"/>
-								</div>
-								<div class="large-4 columns">
-									<label>G:</label><input id="rgb_g_b" type="number" value="" min="0" max="255"/>
-								</div>
-								<div class="large-4 columns">
-									<label>B:</label><input id="rgb_b_b" type="number" value="" min="0" max="255"/>
-								</div>
-								<hr>
-
-								<div class="large-12 columns">
-									<input type="text" id="flatSpectrum_b" style="display: none;" />
-								</div>
-							<div class="large-12 columns">
-								<div id="colorPickerB" class="swatch">
-									&nbsp;
-								</div>
-							</div>
 
 
-						</div>
-						<div class="large-4 columns io">
-							<label>Text</label>
-							<textarea id="sampleText"
-									  placeholder="The public was amazed to view the quickness and dexterity of the juggler">The public was amazed to view the quickness and dexterity of the juggler</textarea>
-							<hr>
-							<label>Background</label>
-							<form id="form1" runat="server">
-								<input type='file' id="imgInp" />
-							</form>
-							<hr>
-							<div>
-							<input type="text" id="flatSpectrum" style="display: none;" />
-							</div>
-
-								<div id="colorPickerBackground" class="swatch">
-									&nbsp;
-								</div>
-
-						</div>
-					</div>
-				</div>
-			</form>
-		</div>
-	</div>
-</div>
-<!--End Pattern HTML-->
 <div class="container" id="containerBackground">
 
-		<div class="panel_outer" id="panel_1_outer">
+    <div class="panel_outer" id="panel_1_outer">
 
-			  <div id="panel_1_inner" class="panel_inner">
-				  &nbsp;
-			  </div>
+        <div id="panel_1_inner" class="panel_inner">
+            &nbsp;
+        </div>
 
-		</div>
-		<div class="panel_outer" id="panel_2_outer" >
+    </div>
+    <div class="panel_outer" id="panel_2_outer">
 
-				<div id="panel_2_inner" class="panel_inner">
-					     &nbsp;
-				</div>
+        <div id="panel_2_inner" class="panel_inner">
+            &nbsp;
+        </div>
 
-		</div>
+    </div>
 
-		<div class="panel_outer" id="panel_3_outer">
+    <div class="panel_outer" id="panel_3_outer">
 
-				<div id="panel_3_inner" class="panel_inner">
-					&nbsp;
-				</div>
+        <div id="panel_3_inner" class="panel_inner">
+            &nbsp;
+        </div>
 
-		</div>
-		<div class="panel_outer" id="panel_4_outer">
+    </div>
+    <div class="panel_outer" id="panel_4_outer">
 
-				<div id="panel_4_inner" class="panel_inner">
-					&nbsp;
-				</div>
-		</div>
-
-
+        <div id="panel_4_inner" class="panel_inner">
+            &nbsp;
+        </div>
+    </div>
 </div>
 
+
+<form>
+    <div class="panel" id="optionsPanel">
+        <div class="row">
+            <div class="large-4 columns io">
+
+
+                <label>Color A</label>
+
+                <div class="large-12 columns">
+                    <div id="colorPickerA" class="swatch">
+                        &nbsp;
+                    </div>
+                </div>
+
+                <div class="large-12 columns">
+                    <input type="text" id="flatSpectrum_a" style="display: none;"/>
+
+                </div>
+
+                <div class="large-6 columns">
+                    <label>HEX</label><input id="hex_a" type="text" value=""/>
+                </div>
+                <div class="large-6 columns">
+                    <label>Opacity</label><input id="opacity_a" type="number" value="" min="0" max="1.0" step="0.1"/>
+                </div>
+
+                <hr>
+
+                <div class="large-4 columns">
+                    <label>R:</label><input id="rgb_r_a" type="number" value="" min="0" max="255"/>
+                </div>
+                <div class="large-4 columns">
+                    <label>G:</label><input id="rgb_g_a" type="number" value="" min="0" max="255"/>
+                </div>
+                <div class="large-4 columns">
+                    <label>B:</label><input id="rgb_b_a" type="number" value="" min="0" max="255"/>
+                </div>
+                <hr>
+
+
+            </div>
+
+            <div class="large-4 columns io">
+
+                <label>Color B</label>
+
+                <div class="large-12 columns">
+                    <div id="colorPickerB" class="swatch">
+                        &nbsp;
+                    </div>
+                </div>
+
+                <div class="large-12 columns">
+                    <input type="text" id="flatSpectrum_b" style="display: none;"/>
+                </div>
+
+                <div class="large-6 columns">
+                    <label>Hex</label><input id="hex_b" type="text" value=""/>
+                </div>
+                <div class="large-6 columns">
+                    <label>Opacity</label><input id="opacity_b" type="number" value="" min="0" max="1.0" step="0.1"/>
+                </div>
+                <hr>
+
+                <div class="large-4 columns">
+                    <label>R:</label><input id="rgb_r_b" type="number" value="" min="0" max="255"/>
+                </div>
+                <div class="large-4 columns">
+                    <label>G:</label><input id="rgb_g_b" type="number" value="" min="0" max="255"/>
+                </div>
+                <div class="large-4 columns">
+                    <label>B:</label><input id="rgb_b_b" type="number" value="" min="0" max="255"/>
+                </div>
+                <hr>
+
+            </div>
+            <div class="large-4 columns io">
+
+                <label>Background</label>
+                <div id="colorPickerBackground" class="swatch">
+                    &nbsp;
+                </div>
+
+                <div>
+                    <input type="text" id="flatSpectrum" style="display: none;"/>
+                </div>
+
+
+                <form id="form1" runat="server">
+                    Image: <input type='file' id="imgInp"/>
+                </form>
+                <hr>
+                <label>Text</label>
+							<textarea id="sampleText"
+                                      placeholder="The public was amazed to view the quickness and dexterity of the juggler">The public was amazed to view the quickness and dexterity of the juggler</textarea>
+            </div>
+        </div>
+    </div>
+</form>
+
+<div id="aboutBox" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+    <h2 id="modalTitle">Color Interactions</h2>
+    <p class="lead">Explore color interactions to help choose your optimal color palette</p>
+    <a href="https://github.com/golgistudio/ColorInteractions" target="_blank">Github Repo</a>
+    <p> Designed by Golgi Studio - Copyright © Laurie Reynolds. 2015 • All rights reserved</p>
+    <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>
+
+<!--End Pattern HTML-->
 
 
 <script src="js/vendor/jquery.js"></script>
